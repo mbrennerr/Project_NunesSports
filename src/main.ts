@@ -6,7 +6,7 @@ import { getAllProducts } from "./utils/getAllProducts.ts";
 const app = document.querySelector<HTMLDivElement>("#app");
 if (app) {
   const tableComponent = Table();
-  const buttonComponent = Button();
+  const buttonComponent = Button(() => console.log("Button clicked"));
 
   buttonComponent.addEventListener("click", () => {
     getAllProducts()

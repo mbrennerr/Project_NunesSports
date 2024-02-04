@@ -1,0 +1,36 @@
+import { Product } from "../types";
+import { API_URL } from "../api/apiProduct.ts";
+
+const loadButton = document.getElementById("loadButton") as HTMLButtonElement;
+const productTableBody = document.getElementById(
+  "productTableBody",
+) as HTMLTableSectionElement;
+
+export async function getAllProducts(): Promise<Prduct[]> {
+  try {
+    const response = await API_URL.get<Product[]>("/products");
+
+    if (response.status === 200 && response.data) {
+      const products = response.data;
+
+      let rowsHTML = "";
+      products.forEach((product) => {
+        rowsHTML += `
+        <tr>
+          <td>${product.cod}</td>
+          <td>${product.name}</td>
+          <td>${product.price}</td>
+          <td>${product.description}</td>
+        </tr>
+      `;
+      });
+
+      productTableBody.innerHTML = rowsHTML;
+    } else {
+      console.error("Erro na Requisição");
+    }
+  } catch (error) {
+    console.error("Erro ao carregar produtos", error);
+  }
+}
+loadButton.addEventListener("click", getAllProducts);

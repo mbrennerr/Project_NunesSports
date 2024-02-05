@@ -1,7 +1,5 @@
 import "./style/style.css";
 import { Table } from "./components/Table.ts";
-import { Button } from "./components/Buttons.ts";
-//import { getAllProducts } from "./utils/getAllProducts.ts";
 import { getAllProducts } from "./services/ProductService.ts";
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -21,13 +19,25 @@ const updateTable = (tableComponent: HTMLTableElement, products: any[]) => {
       .join("");
   }
 };
-if (app) {
-  const tableComponent = Table();
-  const buttonComponent = Button(() => {
-    getAllProducts()
-      .then((products) => updateTable(tableComponent, products))
-      .catch((error) => console.error(error));
-  });
-  app.innerHTML = "";
-  app.append(buttonComponent, tableComponent);
-}
+const init = async () => {
+  if (app) {
+    const tableComponent = Table();
+    //vou reutilizar essa função para criar um botão que cria um produto!
+    // const buttonComponent = Button(() => {
+    //   getAllProducts()
+    //       .then((products) => updateTable(tableComponent, products))
+    //       .catch((error) => console.error(error));
+    // });
+    app.innerHTML = "";
+    app.append(tableComponent);
+
+    try {
+      const products = await getAllProducts();
+      updateTable(tableComponent, products);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+
+init();

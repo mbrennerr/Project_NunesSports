@@ -12,6 +12,8 @@ export function Table() {
             <th>description</th>
         </tr>
         </thead>
+        <tbody id="productTableBody"></tbody>   
+        
     `;
   return table;
 }

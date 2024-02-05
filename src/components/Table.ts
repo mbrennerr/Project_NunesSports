@@ -13,7 +13,6 @@ export function Table() {
         </tr>
         </thead>
         <tbody id="productTableBody"></tbody>   
-        
     `;
   return table;
 }

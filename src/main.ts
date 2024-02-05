@@ -1,36 +1,33 @@
 import "./style/style.css";
 import { Table } from "./components/Table.ts";
 import { Button } from "./components/Buttons.ts";
-import { getAllProducts } from "./utils/getAllProducts.ts";
+//import { getAllProducts } from "./utils/getAllProducts.ts";
+import { getAllProducts } from "./services/ProductService.ts";
 
 const app = document.querySelector<HTMLDivElement>("#app");
+const updateTable = (tableComponent: HTMLTableElement, products: any[]) => {
+  const tbody = tableComponent.querySelector("tbody");
+  if (tbody) {
+    tbody.innerHTML = products
+      .map(
+        (product) => `
+                     <tr>
+                            <td>${product.cod}</td>
+                            <td>${product.name}</td>
+                            <td>${product.price}</td>
+                            <td>${product.description}</td>
+                     </tr>`,
+      )
+      .join("");
+  }
+};
 if (app) {
   const tableComponent = Table();
-  const buttonComponent = Button(() => console.log("Button clicked"));
-
-  buttonComponent.addEventListener("click", () => {
+  const buttonComponent = Button(() => {
     getAllProducts()
-      .then((products) => {
-        const tbody = tableComponent.querySelector("tbody");
-        if (tbody) {
-          tbody.innerHTML = products
-            .map(
-              (product) => `
-                 <tr>
-                        <td>${product.cod}</td>
-                        <td>${product.name}</td>
-                        <td>${product.price}</td>
-                        <td>${product.description}</td>
-                 </tr>`,
-            )
-            .join("");
-        }
-      })
-      .catch((error) => {
-        console.error("Erro ao carregar produtos", error);
-      });
+      .then((products) => updateTable(tableComponent, products))
+      .catch((error) => console.error(error));
   });
   app.innerHTML = "";
-  app.appendChild(buttonComponent);
-  app.appendChild(tableComponent);
+  app.append(buttonComponent, tableComponent);
 }

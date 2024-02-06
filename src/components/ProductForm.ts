@@ -20,21 +20,36 @@ export function creatProductForm(
 
   form.onsubmit = async (event) => {
     event.preventDefault();
-    const productData = {
-      cod: form.querySelector("#productCod").value,
-      name: form.querySelector("#productName").value,
-      price: form.querySelector("#productPrice").value,
-      description: form.querySelector("#productDescription").value,
-    };
-    try {
-      await createProduct(productData);
-      console.log("Produto cadastrado com sucesso", productData);
+    const productCodElement = form.querySelector("productCod");
+    const productNameElement = form.querySelector("productName");
+    const productPriceElement = form.querySelector("productPrice");
+    const productDescriptionElement = form.querySelector("productDescription");
 
-      closeModal();
-      const products = await getAllProducts();
-      updateTable(tableComponent, products);
-    } catch (error) {
-      console.log("Erro ao cadastrar produto", error);
+    if (
+      productCodElement &&
+      productNameElement &&
+      productPriceElement &&
+      productDescriptionElement
+    ) {
+      const productData = {
+        cod: (productCodElement as HTMLInputElement).value,
+        name: (productNameElement as HTMLInputElement).value,
+        price: (productPriceElement as HTMLInputElement).value,
+        description: (productDescriptionElement as HTMLInputElement).value,
+      };
+      try {
+        await createProduct(productData);
+        console.log("Produto cadastrado com sucesso", productData);
+
+        closeModal();
+        const products = await getAllProducts();
+
+        updateTable(tableComponent, products);
+      } catch (error) {
+        console.log("Erro ao cadastrar produto", error);
+      }
+    } else {
+      console.log("Form Elements not found!");
     }
   };
   return form;

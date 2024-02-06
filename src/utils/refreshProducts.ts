@@ -1,5 +1,5 @@
 import { getAllProducts } from "../services/ProductService.ts";
-import { updateTable } from "../utils/updateTable.ts";
+import { updateTable } from "./updateTable.ts";
 
 export const refreshProducts = async (tableComponent: HTMLTableElement) => {
   try {

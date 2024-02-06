@@ -1,4 +1,4 @@
-// import "../style/modal.css";
+import "../style/modal.css";
 
 export function Modal(content: HTMLElement) {
   const modalOverlay = document.createElement("div");
@@ -12,14 +12,14 @@ export function Modal(content: HTMLElement) {
   modalContent.appendChild(content);
   modalOverlay.appendChild(modalContent);
   function open() {
-    modalOverlay.style.visibility = "visible";
+    modalOverlay.classList.add("visible");
     modalOverlay.setAttribute("aria-hidden", "false");
     document.body.appendChild(modalOverlay);
     document.addEventListener("keydown", handleScapeClose);
   }
 
   function close() {
-    modalOverlay.style.visibility = "hidden";
+    modalOverlay.classList.remove("visible");
     modalOverlay.setAttribute("aria-hidden", "true");
     document.body.removeChild(modalOverlay);
     document.removeEventListener("keydown", handleScapeClose);

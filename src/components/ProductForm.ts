@@ -20,10 +20,10 @@ export function creatProductForm(
 
   form.onsubmit = async (event) => {
     event.preventDefault();
-    const productCodElement = form.querySelector("productCod");
-    const productNameElement = form.querySelector("productName");
-    const productPriceElement = form.querySelector("productPrice");
-    const productDescriptionElement = form.querySelector("productDescription");
+    const productCodElement = form.querySelector("#productCod");
+    const productNameElement = form.querySelector("#productName");
+    const productPriceElement = form.querySelector("#productPrice");
+    const productDescriptionElement = form.querySelector("#productDescription");
 
     if (
       productCodElement &&

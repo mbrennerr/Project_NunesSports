@@ -1,4 +1,4 @@
-# Sistema de gestão de rodutos - Nunes Sports
+# Sistema de gestão de produtos - Nunes Sports
 Projeto desenvolvido para processo seletivo na   Everymind
 
 

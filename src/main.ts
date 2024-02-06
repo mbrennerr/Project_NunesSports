@@ -8,11 +8,14 @@ const app = document.querySelector<HTMLDivElement>("#app");
 
 const init = async () => {
   if (app) {
-    const createButtonComponent = Button(() => console.log("Create"));
+    const newProdButton = Button("Novo Produto", () => console.log("Create"));
+    const updateProdButton = Button("Atualizar Produto", () =>
+      console.log("Updated"),
+    );
     const tableComponent = Table();
 
     app.innerHTML = "";
-    app.append(createButtonComponent, tableComponent);
+    app.append(newProdButton, updateProdButton, tableComponent);
 
     try {
       const products = await getAllProducts();

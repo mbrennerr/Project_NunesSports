@@ -1,7 +1,7 @@
 import { createProduct, getAllProducts } from "../services/ProductService.ts";
 import { updateTable } from "../utils/updateTable.ts";
 
-export function creatProductForm(
+export function createProductForm(
   tableComponent: HTMLTableElement,
   closeModal: () => void,
 ) {

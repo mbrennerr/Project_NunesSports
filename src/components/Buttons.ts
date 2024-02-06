@@ -1,7 +1,7 @@
-export function Button(onclick: () => void) {
+export function Button(label: string, onclick: () => void) {
   const button = document.createElement("button");
   button.id = "loadButton";
-  button.innerHTML = "Novo Produto";
+  button.innerHTML = label;
   button.addEventListener("click", onclick);
   return button;
 }

@@ -16,25 +16,40 @@ export async function handleProductSubmit(
       case "create":
         if (typeof createProduct === "function") {
           await createProduct(productData);
-          console.log("Produto cadastrado com sucesso", productData);
+          console.log(
+            "HandleProductSubmit_log: Produto cadastrado com sucesso",
+            productData,
+          );
         } else {
-          console.warn("createProduct não implementado!");
+          console.warn(
+            "HandleProductSubmit_log: createProduct não implementado!",
+          );
         }
         break;
       case "update":
         if (typeof updateProduct === "function") {
           await updateProduct(productData);
-          console.log("Produto atualizado com sucesso", productData);
+          console.log(
+            "HandleProductSubmit_log: Produto atualizado com sucesso",
+            productData,
+          );
         } else {
-          console.warn("updateProduct não implementado!");
+          console.warn(
+            "HandleProductSubmit_log: updateProduct não implementado!",
+          );
         }
         break;
       case "delete":
         if (typeof deleteProduct === "function") {
           await deleteProduct(productData.id);
-          console.log("Produto deletado com sucesso", productData);
+          console.log(
+            "HandleProductSubmit_log: Produto deletado com sucesso",
+            productData,
+          );
         } else {
-          console.warn("deleteProduct não implementado!");
+          console.warn(
+            "HandleProductSubmit_log: deleteProduct não implementado!",
+          );
         }
         break;
       default:

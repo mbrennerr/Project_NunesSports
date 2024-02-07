@@ -38,7 +38,7 @@ export async function handleProductSubmit(
         }
         break;
       default:
-        throw new Error("handlePrdocutSubmit_Log:Operação não permitida");
+        console.error("handlePrdocutSubmit_Log:Operação não permitida");
     }
     if (tableComponent !== null) {
       await refreshProducts(tableComponent);

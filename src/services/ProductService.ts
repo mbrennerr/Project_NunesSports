@@ -2,11 +2,20 @@ import { Product } from "../types";
 import { API_URL } from "../api/apiProduct";
 
 export const createProduct = async (product: Product) => {
-  const response = await API_URL.post<Product>("/products", product);
-  if (response.status === 201 && response.data) {
-    return response.data;
-  } else {
-    throw new Error("Erro na requisição da API");
+  try {
+    const response = await API_URL.post<Product>("/products", product);
+    if (response.status === 200) {
+      console.log("CreateProduct_Log: Resposta da API", response.data);
+      return response.data;
+    } else {
+      console.error(
+        "MetodoCreate_Else_Log:Resposta de Erro da API",
+        response.data,
+      );
+    }
+  } catch (error) {
+    console.error("MetodoCreate_Log:Erro na requisição da API", error);
+    throw error;
   }
 };
 

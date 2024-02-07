@@ -19,7 +19,7 @@ const init = async () => {
       console.log("newProdButton_log: Novo Produto clicado!");
     });
     const updateProdButton = Button("Atualizar Produto", () =>
-      console.log("Updated"),
+      console.log("updateProdButton_log: Atualizar Produto clicado!"),
     );
 
     app.innerHTML = "";

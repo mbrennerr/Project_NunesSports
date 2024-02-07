@@ -20,13 +20,17 @@ export const getAllProducts = async (): Promise<Product[]> => {
   }
 };
 
-//const updateProduct = async (product: Product) => {};
+export const updateProduct = async (product: Product) => {
+  console.log(product, "Console_Service_updateProduct");
+};
 
-//const deleteProduct = async (id: string) => {};
+export const deleteProduct = async (id: string) => {
+  console.log(id, "Console_Service_deleteProduct");
+};
 
 export const ProductService = {
   createProduct,
   getAllProducts,
-  //updateProduct,
-  //deleteProduct,
+  updateProduct,
+  deleteProduct,
 };

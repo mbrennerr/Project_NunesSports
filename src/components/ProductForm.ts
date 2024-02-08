@@ -1,10 +1,6 @@
-import { createProduct, getAllProducts } from "../services/ProductService.ts";
-import { updateTable } from "../utils/updateTable.ts";
+import { handleProductSubmit } from "../utils/handleProductSubmit.ts";
 
-export function createProductForm(
-  tableComponent: HTMLTableElement,
-  closeModal: () => void,
-) {
+export function createProductForm(onSuccess: () => Promise<void>) {
   const form = document.createElement("form");
   form.innerHTML = `
     <label for="productCod">Código:</label>
@@ -38,18 +34,15 @@ export function createProductForm(
         description: (productDescriptionElement as HTMLInputElement).value,
       };
       try {
-        await createProduct(productData);
-        console.log("Produto cadastrado com sucesso", productData);
-
-        closeModal();
-        const products = await getAllProducts();
-
-        updateTable(tableComponent, products);
+        await handleProductSubmit(productData, "create");
+        console.log(
+          "ProductForm_Log: Produto cadastrado com sucesso",
+          productData,
+        );
+        await onSuccess();
       } catch (error) {
-        console.log("Erro ao cadastrar produto", error);
+        console.log("ProdutForm_Catch_Log: Erro ao cadastrar produto", error);
       }
-    } else {
-      console.log("Form Elements not found!");
     }
   };
   return form;

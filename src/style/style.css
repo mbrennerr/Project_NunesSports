@@ -13,10 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*.force-refresh {*/
-/*  outline: none;*/
-/*}*/
-
 button {
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -24,16 +20,17 @@ button {
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  background-color: #646cff;
+  background-color: #4CAF50;
   color: #fff;
 }
 button:hover {
-  color: #535bf2;
+  color: #457f3c;
 }
 
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -42,6 +39,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #646cff;
 }
 
 #app {

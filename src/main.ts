@@ -3,7 +3,6 @@ import { Table } from "./components/Table.ts";
 import { Button } from "./components/Buttons.ts";
 import { Modal } from "./components/Modal.ts";
 import { refreshProducts } from "./utils/refreshProducts.ts";
-import { handleProductSubmit } from "./utils/handleProductSubmit.ts";
 import { createProductForm } from "./components/ProductForm.ts";
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -14,13 +13,11 @@ const init = async () => {
 
     const newProdButton = Button("Novo Produto", () => {
       console.log("newProdButton_log: Novo Produto clicado!");
-      const onSubmit = async () => {
-        const productData: {} = {};
-        await handleProductSubmit(productData, "create");
+
+      const form = createProductForm(async () => {
         await refreshProducts(tableComponent);
         modal.close();
-      };
-      const form = createProductForm(onSubmit, () => {});
+      });
       const modal = Modal(form);
       modal.open();
     });

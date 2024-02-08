@@ -13,7 +13,6 @@ const init = async () => {
 
     const newProdButton = Button("Novo Produto", () => {
       console.log("newProdButton_log: Novo Produto clicado!");
-
       const form = createProductForm(async () => {
         await refreshProducts(tableComponent);
         modal.close();
@@ -22,12 +21,8 @@ const init = async () => {
       modal.open();
     });
 
-    const updateProdButton = Button("Atualizar Produto", () =>
-      console.log("updateProdButton_log: Atualizar Produto clicado!"),
-    );
-
     app.innerHTML = "";
-    app.append(newProdButton, updateProdButton, tableComponent);
+    app.append(newProdButton, tableComponent);
 
     try {
       await refreshProducts(tableComponent);

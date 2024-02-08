@@ -1,6 +1,10 @@
 import { handleProductSubmit } from "../utils/handleProductSubmit.ts";
+import { Product } from "../types";
 
-export function createProductForm(onSuccess: () => Promise<void>) {
+export function createProductForm(
+  onSuccess: () => Promise<void>,
+  product?: Product,
+) {
   const form = document.createElement("form");
   form.innerHTML = `
     <label for="productCod">Código:</label>
@@ -28,13 +32,14 @@ export function createProductForm(onSuccess: () => Promise<void>) {
       productDescriptionElement
     ) {
       const productData = {
+        ...product,
         cod: (productCodElement as HTMLInputElement).value,
         name: (productNameElement as HTMLInputElement).value,
         price: (productPriceElement as HTMLInputElement).value,
         description: (productDescriptionElement as HTMLInputElement).value,
       };
       try {
-        await handleProductSubmit(productData, "create");
+        await handleProductSubmit(productData, product ? "update" : "create");
         console.log(
           "ProductForm_Log: Produto cadastrado com sucesso",
           productData,

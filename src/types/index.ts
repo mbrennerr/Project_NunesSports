@@ -1,9 +1,9 @@
 type Product = {
-    cod: number;
-    name: string;
-    price: number;
-    description: string;
+  id?: string;
+  cod: string;
+  name: string;
+  price: string;
+  description: string;
+};
 
-}
-
-export type { Product }
+export type { Product };

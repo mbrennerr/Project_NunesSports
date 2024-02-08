@@ -8,11 +8,12 @@ export const updateTable = (
     tbody.innerHTML = products
       .map(
         (product) => `
-                     <tr>
+                     <tr data-id="${product.id}">
                             <td>${product.cod}</td>
                             <td>${product.name}</td>
                             <td>${product.price}</td>
                             <td>${product.description}</td>
+                            <td><button class="edit-product-btn" data-id="${product.id}">Editar</button></td>
                      </tr>`,
       )
       .join("");

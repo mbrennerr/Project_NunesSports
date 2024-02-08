@@ -22,7 +22,7 @@ export const createProduct = async (product: Product) => {
 export const getAllProducts = async (): Promise<Product[]> => {
   const response = await API_URL.get<Product[]>("/products");
   if (response.status === 200 && response.data) {
-    console.log(response.data, "Console_Service_getAllProducts");
+    // console.log(response.data, "Console_Service_getAllProducts");
     return response.data;
   } else {
     throw new Error("Erro na requisição da API");

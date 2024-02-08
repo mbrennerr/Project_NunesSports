@@ -10,6 +10,19 @@ export const getAllProducts = async (): Promise<Product[]> => {
     throw new Error("Erro na requisição da API");
   }
 };
+
+export const getProductById = async (id: string): Promise<Product> => {
+  const response = await API_URL.get<Product>(`/products/${id}`);
+  if (response.status === 200 && response.data) {
+    console.log(
+      "Console_Service_getProductById: Resposta da API",
+      response.data,
+    );
+    return response.data;
+  } else {
+    throw new Error("Erro na requisição da API");
+  }
+};
 export const createProduct = async (product: Product) => {
   try {
     const response = await API_URL.post<Product>("/products", product);

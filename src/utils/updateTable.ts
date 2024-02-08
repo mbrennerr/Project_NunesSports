@@ -4,6 +4,7 @@ export const updateTable = (
 ) => {
   const tbody = tableComponent.querySelector("tbody");
   if (tbody) {
+    console.log("updateTable_Log: Atualizando tabela de produtos...", products);
     tbody.innerHTML = products
       .map(
         (product) => `

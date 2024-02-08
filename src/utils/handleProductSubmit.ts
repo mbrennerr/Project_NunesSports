@@ -1,14 +1,11 @@
+import { Product } from "../types";
 import { refreshProducts } from "./refreshProducts.ts";
-import {
-  createProduct,
-  deleteProduct,
-  updateProduct,
-} from "../services/ProductService.ts";
+import { createProduct, updateProduct } from "../services/ProductService.ts";
 
 let tableComponent: HTMLTableElement | null =
   document.querySelector("#tableComponentId");
 export async function handleProductSubmit(
-  productData: any,
+  productData: Product,
   operationType: string,
 ) {
   try {
@@ -16,6 +13,9 @@ export async function handleProductSubmit(
       case "create":
         if (typeof createProduct === "function") {
           await createProduct(productData);
+          // if (tableComponent) {
+          //   await refreshProducts(tableComponent);
+          // }
           console.log(
             "HandleProductSubmit_log: Produto cadastrado com sucesso",
             productData,
@@ -39,23 +39,23 @@ export async function handleProductSubmit(
           );
         }
         break;
-      case "delete":
-        if (typeof deleteProduct === "function") {
-          await deleteProduct(productData.id);
-          console.log(
-            "HandleProductSubmit_log: Produto deletado com sucesso",
-            productData,
-          );
-        } else {
-          console.warn(
-            "HandleProductSubmit_log: deleteProduct não implementado!",
-          );
-        }
-        break;
+      // case "delete":
+      //   if (typeof deleteProduct === "function") {
+      //     await deleteProduct(productData.id);
+      //     console.log(
+      //       "HandleProductSubmit_log: Produto deletado com sucesso",
+      //       productData,
+      //     );
+      //   } else {
+      //     console.warn(
+      //       "HandleProductSubmit_log: deleteProduct não implementado!",
+      //     );
+      //   }
+      //   break;
       default:
         console.error("handlePrdocutSubmit_Log:Operação não permitida");
     }
-    if (tableComponent !== null) {
+    if (tableComponent) {
       await refreshProducts(tableComponent);
     }
   } catch (error) {

@@ -43,7 +43,7 @@ export const createProduct = async (product: Product) => {
 
 export const updateProduct = async (product: Product) => {
   try {
-    const response = await API_URL.put<Product>(
+    const response = await API_URL.patch<Product>(
       `/products/${product.id}`,
       product,
     );

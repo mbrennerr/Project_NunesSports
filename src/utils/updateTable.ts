@@ -1,3 +1,5 @@
+import { openEditProductModal } from "./modalUtils.ts";
+
 export const updateTable = (
   tableComponent: HTMLTableElement,
   products: any[],
@@ -17,5 +19,15 @@ export const updateTable = (
                      </tr>`,
       )
       .join("");
+
+    //Listerner para os botões de edição;
+    tbody.querySelectorAll(".edit-product-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        console.log("edit-product-btn_Log: Editar Produto clicado!", event);
+        const productId = button.getAttribute("data-id")!;
+        openEditProductModal(productId, tableComponent); //essa função ainda não existe, vai ser definida no main.ts
+        event.stopPropagation();
+      });
+    });
   }
 };

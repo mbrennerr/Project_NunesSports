@@ -17,7 +17,18 @@ export function createProductForm(
     <textarea id="productDescription" name="productDescription" required></textarea><br><br>
     <button type="submit">Salvar Produto</button>
   `;
-
+  // Se o produto existir, preenche os campos do formulário sem isso quando clicar em editar o formulário vem vazio...
+  // horrivel bati cabeça com isso =D
+  if (product) {
+    (form.querySelector("#productCod") as HTMLInputElement).value = product.cod;
+    (form.querySelector("#productName") as HTMLInputElement).value =
+      product.name;
+    (form.querySelector("#productPrice") as HTMLInputElement).value =
+      product.price;
+    (form.querySelector("#productDescription") as HTMLInputElement).value =
+      product.description;
+  }
+  // Adiciona um evento de submit ao formulário
   form.onsubmit = async (event) => {
     event.preventDefault();
     const productCodElement = form.querySelector("#productCod");

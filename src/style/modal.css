@@ -9,17 +9,48 @@
   opacity: 0; /* Inicia transparente */
   transition: opacity 0.3s ease, visibility 0.3s; /* Transição suave */
   z-index: 1000; /* Garante que o modal esteja acima de outros elementos */
+
 }
 .modal-content {
-  background-color: rgba(0,0,0,0.70); /* Fundo branco */
+  background-color: rgba(0,0,0,0.90); /* Fundo preto */
   padding: 20px; /* Espaçamento interno */
   border-radius: 5px; /* Bordas arredondadas */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
   max-width: 500px; /* Largura máxima */
   width: 90%; /* Largura padrão */
   z-index: 1010; /* Acima do overlay para evitar cliques acidentais */
+
 }
 .modal-overlay.visible {
   visibility: visible;
   opacity: 1;
+}
+#formCamps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#formCamps input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 60%;
+}
+#formCamps button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 60%;
+}
+
+#formCamps textarea {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 60%;
+  height: 60px;
 }

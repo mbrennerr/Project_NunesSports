@@ -7,6 +7,7 @@ export function createProductForm(
 ) {
   const form = document.createElement("form");
   form.innerHTML = `
+    <div id="formCamps">
     <label for="productCod">Código:</label>
     <input type="text" id="productCod" name="productCod" required><br><br>
     <label for="productName">Nome:</label>
@@ -15,7 +16,8 @@ export function createProductForm(
     <input type="text" id="productPrice" name="productPrice" required><br><br>
     <label for="productDescription">Descrição:</label>
     <textarea id="productDescription" name="productDescription" required></textarea><br><br>
-    <button type="submit">Salvar Produto</button>
+    <button type="submit">Salvar Produto</button>    
+    </div>
   `;
   // Se o produto existir, preenche os campos do formulário sem isso quando clicar em editar o formulário vem vazio...
   // horrivel bati cabeça com isso =D

@@ -108,3 +108,9 @@ th, td {
 th {
   background-color: #646cff;
 }
+
+#columAcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

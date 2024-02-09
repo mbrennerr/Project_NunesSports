@@ -17,8 +17,13 @@ export const updateTable = (
                             <td>${product.name}</td>
                             <td>${product.price}</td>
                             <td>${product.description}</td>
-                            <td><button class="edit-product-btn" data-id="${product.id}">Editar</button></td>
-                            <td><button class="delete-product-btn" data-id="${product.id}">Excluir</button></td>
+                            <td>
+                            <div id="columAcoes">
+                            <button class="edit-product-btn" data-id="${product.id}">Editar</button>
+                            <button class="delete-product-btn" data-id="${product.id}">Excluir</button>                            
+                            </div>           
+                            </td>       
+                                                    
                      </tr>`,
       )
       .join("");

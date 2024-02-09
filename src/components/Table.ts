@@ -7,9 +7,10 @@ export function Table() {
     <thead>
         <tr>
             <th>cod</th>
-            <th>name</th>
-            <th>price</th>
-            <th>description</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody id="productTableBody"></tbody>   

@@ -65,3 +65,4 @@ index.html
 ### Layoutr do projeto
 
 ![image](src/assets/table.png)
+Depoly da aplicação: [NunesSports](https://project-nunes-sports-mbrennerr.vercel.app/)

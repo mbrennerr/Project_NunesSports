@@ -66,3 +66,8 @@ index.html
 
 ![image](src/assets/table.png)
 Depoly da aplicação: [NunesSports](https://project-nunes-sports-mbrennerr.vercel.app/)
+
+---
+### Fale comigo
+- Linkedin: [Marcio Brenner - [MB]](https://www.linkedin.com/in/mbrennerr/)
+- Trailhead: [Marcio Brenner - [MB]](https://trailblazer.me/id/mbrennerr)

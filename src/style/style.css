@@ -132,3 +132,12 @@ th {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+#loadButton{
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+#loadButton:hover {
+  color: #457f3c;
+}

@@ -63,7 +63,16 @@ export const updateProduct = async (product: Product) => {
 };
 
 export const deleteProduct = async (id: string) => {
-  console.log(id, "Console_Service_deleteProduct");
+  const response = await API_URL.delete<Product>(`/products/${id}`);
+  if (response.status === 200) {
+    console.log("DeleteProduct_Log: Resposta da API", response.data);
+    return response.data;
+  } else {
+    console.error(
+      "MetodoDelete_Else_Log:Resposta de Erro da API",
+      response.data,
+    );
+  }
 };
 
 export const ProductService = {

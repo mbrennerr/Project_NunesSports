@@ -6,7 +6,7 @@ export function Table() {
   table.innerHTML = `
     <thead>
         <tr>
-            <th>cod</th>
+            <th>código</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Descrição</th>

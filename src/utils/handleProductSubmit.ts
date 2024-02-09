@@ -9,14 +9,14 @@ import {
 let tableComponent: HTMLTableElement | null =
   document.querySelector("#tableComponentId");
 export async function handleProductSubmit(
-  productData: Product,
+  productData: Partial<Product> & { id?: string }, // update e create recebem Product, delete recebe apenas id, no quero mexer em tipagem agora resolvo depois.
   operationType: string,
 ) {
   try {
     switch (operationType) {
       case "create":
         if (typeof createProduct === "function") {
-          await createProduct(productData);
+          await createProduct(productData as Product);
           console.log(
             "HandleProductSubmit_log: Produto cadastrado com sucesso",
             productData,
@@ -33,7 +33,7 @@ export async function handleProductSubmit(
           return;
         }
         if (typeof updateProduct === "function") {
-          await updateProduct(productData);
+          await updateProduct(productData as Product);
           console.log(
             "HandleProductSubmit_log: Produto atualizado com sucesso",
             productData,

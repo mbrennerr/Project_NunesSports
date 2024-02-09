@@ -8,7 +8,7 @@ export function Table() {
         <tr>
             <th>código</th>
             <th>Nome</th>
-            <th>Preço</th>
+            <th>Preço R$</th>
             <th>Descrição</th>
             <th>Ações</th>
         </tr>

@@ -11,7 +11,7 @@ export function createProductForm(
     <input type="text" id="productCod" name="productCod" required><br><br>
     <label for="productName">Nome:</label>
     <input type="text" id="productName" name="productName" required><br><br>
-    <label for="productPrice">Preço:</label>
+    <label for="productPrice">Preço R$:</label>
     <input type="text" id="productPrice" name="productPrice" required><br><br>
     <label for="productDescription">Descrição:</label>
     <textarea id="productDescription" name="productDescription" required></textarea><br><br>

@@ -15,6 +15,7 @@ O Sistema de Cadastro de Produtos da NunesSports é uma solução dinâmica e ef
 
 * [Vite - Vanilla TS](https://pt.vitejs.dev/guide/) - Build tool
 * [Xano](https://docs.xano.com/) - Banco de dados
+* [Tabela](https://x8ki-letl-twmt.n7.xano.io/share/q6mAZOAMUS-ROyVvla0l2o6fRvw) - link para visualização da tabela em tempo real.
 * [Vercel](https://vercel.com/) - Deploy
 
 ## 🚀 Começando
